@@ -3,15 +3,15 @@
 
 	<parent>
 		<groupId>de.dfki.cos.basys</groupId>
-		<artifactId>platform</artifactId>
+		<artifactId>pom</artifactId>
 		<version>0.1.1-SNAPSHOT</version>
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.dfki.cos.basys.platform</groupId>
+	<groupId>de.dfki.cos.basys.pom</groupId>
 	<artifactId>shared-plugin-settings</artifactId>
 
-	<name>BaSys 4.0 Platform - Plugin Configuration</name>
+	<name>BaSys 4.0 Root POM - Plugin Configuration</name>
 
 	<packaging>pom</packaging>
 
