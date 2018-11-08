@@ -18,7 +18,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dfki.cos.basys</groupId>
 	<artifactId>pom</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.2-SNAPSHOT</version>
 
 	<name>BaSys 4.0 Root POM</name>
 
@@ -82,7 +82,7 @@
 		<url>https://lns-90165.sb.dfki.de/gitlab/i40/basys/pom</url>
 		<connection>scm:git:ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git</connection>
 		<developerConnection>scm:git:ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git</developerConnection>
-	  <tag>v0.1.1</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<repositories>
