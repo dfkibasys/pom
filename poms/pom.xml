@@ -45,7 +45,7 @@
 			<dependency>
 				<!-- | dependency pom representing the global classpath of imported bundles -->
 				<type>pom</type>
-				<groupId>de.dfki.cos.basys.platform</groupId>
+				<groupId>de.dfki.cos.basys.pom</groupId>
 				<artifactId>provision</artifactId>
 				<version>0.1.1-SNAPSHOT</version>
 				<scope>provided</scope>

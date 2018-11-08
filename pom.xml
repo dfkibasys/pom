@@ -57,16 +57,15 @@
 		<curator-x.version>4.0.0</curator-x.version>
 		<!-- <jexl.version>3.1</jexl.version> -->
 		<milo.version>0.2.3</milo.version>
+		<pax-logging-version>1.10.1</pax-logging-version>
 		
 	</properties>
 
 	<packaging>pom</packaging>
 
 	<modules>
-	<!--
-		<module>poms</module>
-		<module>provision</module>			
-	-->
+		<module>poms</module>		
+		<module>provision</module>	
 	</modules>
 
 	<developers>
