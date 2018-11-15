@@ -160,7 +160,7 @@
 			  <artifactId>maven-javadoc-plugin</artifactId>
 			  <version>${maven-javadoc-plugin-version}</version>
 			    <configuration>
-				  <additionalJOption>-Xdoclint:none</additionalOptions>
+				  <additionalJOption>-Xdoclint:none</additionalJOption>
 				  <tags>
 					<tag>
 					  <name>generated</name>
