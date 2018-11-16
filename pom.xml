@@ -319,6 +319,11 @@
                 <goals>
                   <goal>deploy</goal>
                 </goals>
+				 <configuration>
+                  <serverId>ossrh</serverId>
+                  <nexusUrl>https://oss.sonatype.org</nexusUrl>
+                  <skipStaging>false</skipStaging>
+                </configuration>
               </execution>
             </executions>
             <!--
