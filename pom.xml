@@ -9,14 +9,14 @@
     <license>
       <name>Eclipse Public License - v 1.0</name>
       <url>https://www.eclipse.org/legal/epl-v10.html</url>
-      <comments/>
+      <comments />
       <distribution>repo</distribution>
     </license>
   </licenses>
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.dfki.cos.basys</groupId>
   <artifactId>pom</artifactId>
-  <version>0.1.2-SNAPSHOT</version>
+  <version>0.2.0</version>
   <name>BaSys 4.0 Root POM</name>
   <description>This is the root POM for the BaSys 4.0 project</description>
   <properties>
@@ -70,7 +70,7 @@
     <url>https://github.com/BaSys-PC1</url>
     <connection>${gitUrl}/pom.git</connection>
     <developerConnection>${gitUrl}/pom.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>v0.2.0</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
@@ -142,7 +142,7 @@
                     </goals>
                   </pluginExecutionFilter>
                   <action>
-                    <execute/>
+                    <execute />
                   </action>
                 </pluginExecution>
               </pluginExecutions>
@@ -210,7 +210,7 @@
         <version>${version.plugin.enforcer}</version>
         <configuration>
           <rules>
-            <dependencyConvergence/>
+            <dependencyConvergence />
           </rules>
         </configuration>
       </plugin>
