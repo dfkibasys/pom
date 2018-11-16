@@ -1,128 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
-	<organization>
-		<name>DFKI GmbH</name>
-		<url>http://www.dfki.de</url>
-	</organization>
-
-	<licenses>
-		<license>
-			<name>Eclipse Public License - v 1.0</name>
-			<url>https://www.eclipse.org/legal/epl-v10.html</url>
-			<comments />
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.dfki.cos.basys</groupId>
-	<artifactId>pom</artifactId>
-	<version>0.1.2-SNAPSHOT</version>
-
-	<name>BaSys 4.0 Root POM</name>
-
-	<!-- | describe your project here -->
-
-	<description>Generated using Pax-Construct</description>
-
-	<properties>
-		<!-- | some example OSGi runtime properties -->
-		<org.osgi.service.http.port>8080</org.osgi.service.http.port>
-		<org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-		
-		<!-- maven plugin versions -->
-		<maven-tycho-plugin-version>1.0.0</maven-tycho-plugin-version>
-		<maven-source-plugin-version>3.0.1</maven-source-plugin-version>
-		<maven-javadoc-plugin-version>3.0.1</maven-javadoc-plugin-version>
-		<maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
-		<maven-deploy-plugin-version>2.8.2</maven-deploy-plugin-version>
-		<maven-release-plugin-version>2.5.3</maven-release-plugin-version>
-		<maven-enforcer-plugin-version>1.4.1</maven-enforcer-plugin-version>
-
-		<!-- build properties -->
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
-		<!-- dependency versions -->
-		<emf-version>2.12.0</emf-version>
-		<commons-io-version>2.6</commons-io-version>
-		<jackson-version>2.9.5</jackson-version>
-		<emfjson-jackson-version>1.0.1</emfjson-jackson-version>		
-		<jaxrs-version>2.0.1</jaxrs-version>		
-		<jaxrs-connector-version>5.3.1</jaxrs-connector-version>		
-		<jersey-version>2.22.2</jersey-version>	
-		<curator.version>4.0.1</curator.version>
-		<curator-x.version>4.0.0</curator-x.version>
-		<!-- <jexl.version>3.1</jexl.version> -->
-		<milo.version>0.2.3</milo.version>
-		<pax-logging-version>1.10.1</pax-logging-version>
-		
-	</properties>
-
-	<packaging>pom</packaging>
-
-	<modules>
-		<module>poms</module>		
-		<module>provision</module>	
-	</modules>
-
-	<developers>
-		<developer>
-			<id>dp</id>
-			<name>Daniel Porta</name>
-			<email>daniel.porta@dfki.de</email>
-			<organization>German Research Center for Artificial Intelligence (DFKI GmbH)</organization>
-			<organizationUrl>http://www.dfki.de</organizationUrl>			
-		</developer>
-	</developers>
-	
-	<scm>
-		<url>https://lns-90165.sb.dfki.de/gitlab/i40/basys/pom</url>
-		<connection>scm:git:ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git</connection>
-		<developerConnection>scm:git:ssh://git@lns-90165.sb.dfki.de:10022/i40/basys/pom.git</developerConnection>
-	  <tag>HEAD</tag>
+  <organization>
+    <name>DFKI GmbH</name>
+    <url>http://www.dfki.de</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>Eclipse Public License - v 1.0</name>
+      <url>https://www.eclipse.org/legal/epl-v10.html</url>
+      <comments/>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.dfki.cos.basys</groupId>
+  <artifactId>pom</artifactId>
+  <version>0.1.2-SNAPSHOT</version>
+  <name>BaSys 4.0 Root POM</name>
+  <description>This is the root POM for the BaSys 4.0 project</description>
+  <properties>
+    <!-- | some example OSGi runtime properties -->
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <!-- maven plugin versions -->
+    <version.plugin.tycho>1.0.0</version.plugin.tycho>
+    <version.plugin.bundle>2.4.0</version.plugin.bundle>
+    <version.plugin.source>3.0.1</version.plugin.source>
+    <version.plugin.javadoc>3.0.1</version.plugin.javadoc>
+    <version.plugin.gpg>1.6</version.plugin.gpg>
+    <version.plugin.deploy>2.8.2</version.plugin.deploy>
+    <version.plugin.release>2.5.3</version.plugin.release>
+    <version.plugin.enforcer>1.4.1</version.plugin.enforcer>
+    <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>
+    <!-- build properties -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <!-- dependency versions -->
+    <emf-version>2.12.0</emf-version>
+    <commons-io-version>2.6</commons-io-version>
+    <jackson-version>2.9.5</jackson-version>
+    <emfjson-jackson-version>1.0.1</emfjson-jackson-version>
+    <jaxrs-version>2.0.1</jaxrs-version>
+    <jaxrs-connector-version>5.3.1</jaxrs-connector-version>
+    <jersey-version>2.22.2</jersey-version>
+    <curator.version>4.0.1</curator.version>
+    <curator-x.version>4.0.0</curator-x.version>
+    <!-- <jexl.version>3.1</jexl.version> -->
+    <milo.version>0.2.3</milo.version>
+    <pax-logging-version>1.10.1</pax-logging-version>
+  </properties>
+  <packaging>pom</packaging>
+  <modules>
+    <module>poms</module>
+    <module>provision</module>
+  </modules>
+  <developers>
+    <developer>
+      <id>dp</id>
+      <name>Daniel Porta</name>
+      <email>daniel.porta@dfki.de</email>
+      <organization>German Research Center for Artificial Intelligence (DFKI GmbH)</organization>
+      <organizationUrl>http://www.dfki.de</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <url>https://github.com/BaSys-PC1</url>
+    <connection>${gitUrl}/pom.git</connection>
+    <developerConnection>${gitUrl}/pom.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
-
-	<repositories>
-		<repository>
-			<id>DFKI BaSys Nexus</id>
-			<url>https://lns-90165.sb.dfki.de:8443/repository/maven-public/</url>
-		</repository>
-	</repositories>
-
-	<distributionManagement>
-		<repository>
-			<id>nexus-releases</id>
-			<url>https://lns-90165.sb.dfki.de:8443/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<url>https://lns-90165.sb.dfki.de:8443/repository/maven-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
-	<build>
-		<plugins>
-			<!-- https://wiki.eclipse.org/Tycho/Target_Platform#.22POM_dependencies_consider.22 -->
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>tycho-maven-plugin</artifactId>
-				<version>${maven-tycho-plugin-version}</version>
-				<extensions>true</extensions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.eclipse.tycho</groupId>
-				<artifactId>target-platform-configuration</artifactId>
-				<version>${maven-tycho-plugin-version}</version>
-				<configuration>
-					<pomDependencies>consider</pomDependencies>
-				</configuration>
-			</plugin>
-
-<!-- 			<plugin>
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.ops4j</groupId>
+          <artifactId>maven-pax-plugin</artifactId>
+          <!-- | enable improved OSGi compilation support for the bundle life-cycle. 
+						 | to switch back to the standard bundle life-cycle, move this setting 
+						 | down to the maven-bundle-plugin section -->
+          <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>${version.plugin.bundle}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${version.plugin.nexus-staging}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>${version.plugin.source}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>${version.plugin.javadoc}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${version.plugin.gpg}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>${version.plugin.enforcer}</version>
+        </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <versionRange>[3.1.0,)</versionRange>
+                    <goals>
+                      <goal>copy-dependencies</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <execute/>
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <!-- https://wiki.eclipse.org/Tycho/Target_Platform#.22POM_dependencies_consider.22 -->
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${version.plugin.tycho}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${version.plugin.tycho}</version>
+        <configuration>
+          <pomDependencies>consider</pomDependencies>
+        </configuration>
+      </plugin>
+      <!-- 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<version>3.1.0</version>
@@ -141,107 +185,36 @@
 					</execution>
 				</executions>
 			</plugin> -->
-		    
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-source-plugin</artifactId>
-			  <version>${maven-source-plugin-version}</version>
-			  <executions>
-				<execution>
-				  <id>attach-sources</id>
-				  <goals>
-					<goal>jar-no-fork</goal>
-				  </goals>
-				</execution>
-			  </executions>
-			</plugin>
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-javadoc-plugin</artifactId>
-			  <version>${maven-javadoc-plugin-version}</version>
-			    <configuration>
-				  <additionalJOption>-Xdoclint:none</additionalJOption>
-				  <tags>
-					<tag>
-					  <name>generated</name>
-					  <placement>a</placement>
-					  <head>generated</head>
-					</tag>
-					<tag>
-					  <name>model</name>
-					  <placement>a</placement>
-					  <head>model</head>
-					</tag>
-					<tag>
-					  <name>ordered</name>
-					  <placement>a</placement>
-					  <head>ordered</head>
-					</tag>
-				  </tags>
-				</configuration>
-			  <executions>
-				<execution>
-				  <id>attach-javadocs</id>
-				  <goals>
-					<goal>jar</goal>
-				  </goals>
-				</execution>
-			  </executions>
-			</plugin>
-			
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-gpg-plugin</artifactId>
-			  <version>${maven-gpg-plugin-version}</version>			  
-			  
-			  <configuration>
-				<skip>false</skip>
-			  </configuration>
-			  
-			  <executions>
-				<execution>
-				  <id>sign-artifacts</id>
-				  <phase>verify</phase>
-				  <goals>
-					<goal>sign</goal>
-				  </goals>
-				</execution>
-			  </executions>
-			</plugin>
-	
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>${maven-deploy-plugin-version}</version>
-<!-- 				<configuration>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>${version.plugin.deploy}</version>
+        <!-- 				<configuration>
 					<skip>true</skip>
 				</configuration> -->
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<version>${maven-release-plugin-version}</version>
-				<configuration>
-					<tagNameFormat>v@{project.version}</tagNameFormat>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-					<releaseProfiles>releases</releaseProfiles>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>${maven-enforcer-plugin-version}</version>
-				<configuration>
-					<rules>
-						<dependencyConvergence />
-					</rules>
-				</configuration>
-			</plugin>
-
-			<!-- https://github.com/ferstl/depgraph-maven-plugin -->
-		    <!--
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${version.plugin.release}</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <releaseProfiles>sonatype-oss-release</releaseProfiles>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${version.plugin.enforcer}</version>
+        <configuration>
+          <rules>
+            <dependencyConvergence/>
+          </rules>
+        </configuration>
+      </plugin>
+      <!-- https://github.com/ferstl/depgraph-maven-plugin -->
+      <!--
 			<plugin>
 		      <groupId>com.github.ferstl</groupId>
 		      <artifactId>depgraph-maven-plugin</artifactId>
@@ -254,67 +227,123 @@
 			    <version>1.16</version>
 		    </plugin>
 			-->
-		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-dependency-plugin</artifactId>
-										<versionRange>[3.1.0,)</versionRange>
-										<goals>
-											<goal>copy-dependencies</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<execute />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<profiles>
-		<profile>
-			<id>releases</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.6.8</version>
-						<executions>
-							<execution>
-								<id>default-deploy</id>
-								<phase>deploy</phase>
-								<goals>
-									<goal>deploy</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<serverId>nexus-releases</serverId>
-							<nexusUrl>http://lns-90165.sb.dfki.de:8081/</nexusUrl>
-							<skipStaging>true</skipStaging>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
-
+    </plugins>
+  </build>
+  <profiles>
+    <profile>
+      <id>sonatype-oss-release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${version.plugin.source}</version>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>attach-test-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>test-jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${version.plugin.javadoc}</version>
+            <configuration>
+              <quiet>true</quiet>
+              <additionalJOption>-Xdoclint:none</additionalJOption>
+              <tags>
+                <tag>
+                  <name>generated</name>
+                  <placement>a</placement>
+                  <head>generated</head>
+                </tag>
+                <tag>
+                  <name>model</name>
+                  <placement>a</placement>
+                  <head>model</head>
+                </tag>
+                <tag>
+                  <name>ordered</name>
+                  <placement>a</placement>
+                  <head>ordered</head>
+                </tag>
+              </tags>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${version.plugin.gpg}</version>
+            <configuration>
+              <skip>false</skip>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <!--
+			<extensions>true</extensions>
+			-->
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+            </executions>
+            <!--
+			<executions>
+              <execution>
+                <id>central-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+                <configuration>
+                  <detectBuildFailures>true</detectBuildFailures>
+                  <keepStagingRepositoryOnFailure>true</keepStagingRepositoryOnFailure>
+                  <keepStagingRepositoryOnCloseRuleFailure>true</keepStagingRepositoryOnCloseRuleFailure>
+                  <serverId>central</serverId>
+                  <nexusUrl>https://oss.sonatype.org</nexusUrl>
+                  <skipStaging>false</skipStaging>
+                  <skipNexusStagingDeployMojo>${skip.central.release}</skipNexusStagingDeployMojo>
+                </configuration>
+              </execution>
+            </executions>
+			-->
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
