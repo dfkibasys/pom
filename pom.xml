@@ -25,35 +25,35 @@
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
     <!-- maven plugin versions -->
     <version.plugin.tycho>1.0.0</version.plugin.tycho>
-    <version.plugin.bundle>2.4.0</version.plugin.bundle>
+    <version.plugin.bundle>4.1.0</version.plugin.bundle>
     <version.plugin.source>3.0.1</version.plugin.source>
-    <version.plugin.javadoc>3.0.1</version.plugin.javadoc>
+    <version.plugin.javadoc>3.1.0</version.plugin.javadoc>
     <version.plugin.gpg>1.6</version.plugin.gpg>
     <version.plugin.deploy>2.8.2</version.plugin.deploy>
     <version.plugin.release>2.5.3</version.plugin.release>
     <version.plugin.enforcer>1.4.1</version.plugin.enforcer>
     <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
-	<version.plugin.karaf>4.2.1</version.plugin.karaf>	
-	<version.plugin.install>2.5.1</version.plugin.install>
+	<version.plugin.karaf>4.2.3</version.plugin.karaf>	
+	<version.plugin.install>2.5.2</version.plugin.install>
     <!-- build properties -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <!-- dependency versions -->
-    <emf-version>2.12.0</emf-version>
+    <emf-version>2.15.0</emf-version>
     <commons-io-version>2.6</commons-io-version>
-    <jackson-version>2.9.5</jackson-version>
+    <jackson-version>2.9.8</jackson-version>
     <emfjson-jackson-version>1.0.1</emfjson-jackson-version>
-    <jaxrs-version>2.0.1</jaxrs-version>
+    <jaxrs-version>2.1.1</jaxrs-version>
     <jaxrs-connector-version>5.3.1</jaxrs-connector-version>
-    <jersey-version>2.22.2</jersey-version>
-    <curator.version>4.0.1</curator.version>
-    <curator-x.version>4.0.0</curator-x.version>
-    <!-- <jexl.version>3.1</jexl.version> -->
+    <jersey-version>2.28</jersey-version>
+    <curator.version>4.1.0</curator.version>
+    <curator-x.version>4.1.0</curator-x.version>
     <milo.version>0.2.3</milo.version>
     <pax-logging-version>1.10.1</pax-logging-version>	
-	<karaf-version>4.2.1</karaf-version>
+	<karaf-version>4.2.3</karaf-version>
+	<junit-version>4.12</junit-version>
   </properties>
   <packaging>pom</packaging>
   <modules>
