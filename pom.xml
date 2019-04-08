@@ -16,7 +16,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>de.dfki.cos.basys</groupId>
   <artifactId>pom</artifactId>
-  <version>0.2.5</version>
+  <version>0.2.6-SNAPSHOT</version>
   <name>BaSys 4.0 Root POM</name>
   <description>This is the root POM for the BaSys 4.0 project</description>
   <properties>
@@ -76,7 +76,7 @@
     <url>https://github.com/BaSys-PC1</url>
     <connection>${gitUrl}/pom.git</connection>
     <developerConnection>${gitUrl}/pom.git</developerConnection>
-    <tag>v0.2.5</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
