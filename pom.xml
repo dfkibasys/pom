@@ -36,8 +36,8 @@
 	<version.plugin.karaf>4.2.4</version.plugin.karaf>	
 	<version.plugin.install>2.5.2</version.plugin.install>
 	<!-- BaSys module versions -->
-	<version.basys.common>0.2.6</version.basys.common>
-	<version.basys.platform>0.2.6</version.basys.platform>
+	<version.basys.common>0.2.7-SNAPSHOT</version.basys.common>
+	<version.basys.platform>0.2.7-SNAPSHOT</version.basys.platform>
     <!-- build properties -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
