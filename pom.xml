@@ -35,6 +35,9 @@
     <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
 	<version.plugin.karaf>4.2.3</version.plugin.karaf>	
 	<version.plugin.install>2.5.2</version.plugin.install>
+	<!-- BaSys module versions -->
+	<version.basys.common>0.2.5-SNAPSHOT</version.basys.common>
+	<version.basys.platform>0.2.5-SNAPSHOT</version.basys.platform>
     <!-- build properties -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
