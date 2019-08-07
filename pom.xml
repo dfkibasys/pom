@@ -24,7 +24,7 @@
     <org.osgi.service.http.port>8080</org.osgi.service.http.port>
     <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
     <!-- maven plugin versions -->
-    <version.plugin.tycho>1.0.0</version.plugin.tycho>
+    <version.plugin.tycho>1.4.0</version.plugin.tycho>
     <version.plugin.bundle>4.1.0</version.plugin.bundle>
     <version.plugin.source>3.0.1</version.plugin.source>
     <version.plugin.javadoc>3.1.0</version.plugin.javadoc>
