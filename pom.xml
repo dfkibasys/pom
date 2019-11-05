@@ -26,18 +26,24 @@
     <!-- maven plugin versions -->
     <version.plugin.tycho>1.4.0</version.plugin.tycho>
     <version.plugin.bundle>4.1.0</version.plugin.bundle>
-    <version.plugin.source>3.0.1</version.plugin.source>
+    <version.plugin.clean>3.1.0</version.plugin.clean>
+    <version.plugin.resources>3.1.0</version.plugin.resources>
+    <version.plugin.source>3.1.0</version.plugin.source>
     <version.plugin.javadoc>3.1.0</version.plugin.javadoc>
     <version.plugin.gpg>1.6</version.plugin.gpg>
-    <version.plugin.deploy>2.8.2</version.plugin.deploy>
-    <version.plugin.release>2.5.3</version.plugin.release>
     <version.plugin.enforcer>1.4.1</version.plugin.enforcer>
     <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
 	<version.plugin.karaf>4.2.4</version.plugin.karaf>	
+	<version.plugin.compiler>3.8.1</version.plugin.compiler>
+	<version.plugin.surefire>2.22.1</version.plugin.surefire>
+	<version.plugin.war>3.2.3</version.plugin.war>
 	<version.plugin.install>2.5.2</version.plugin.install>
+    <version.plugin.deploy>2.8.2</version.plugin.deploy>
+    <version.plugin.release>2.5.3</version.plugin.release>
 	<!-- BaSys module versions -->
 	<version.basys.common>0.2.7-SNAPSHOT</version.basys.common>
 	<version.basys.platform>0.2.7-SNAPSHOT</version.basys.platform>
+	<version.basys.controlcomponent>0.2.7-SNAPSHOT</version.basys.controlcomponent>
     <!-- build properties -->
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -60,7 +66,7 @@
     <pax-logging-version>1.10.1</pax-logging-version>	
 	<karaf-version>4.2.3</karaf-version>
 	<junit-version>4.12</junit-version>
-	<guava.version>28.1-jre</guava.version>
+	<guava.version>20.0</guava.version>
   </properties>
   <packaging>pom</packaging>
   <modules>
@@ -115,8 +121,33 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>${version.plugin.clean}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>${version.plugin.resources}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <version>${version.plugin.source}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>${version.plugin.compiler}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>${version.plugin.surefire}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>${version.plugin.war}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
