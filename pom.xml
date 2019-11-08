@@ -66,7 +66,7 @@
     <pax-logging-version>1.10.1</pax-logging-version>	
 	<karaf-version>4.2.3</karaf-version>
 	<junit-version>4.12</junit-version>
-	<guava.version>20.0</guava.version>
+	<guava.version>26.0-jre</guava.version>
   </properties>
   <packaging>pom</packaging>
   <modules>
