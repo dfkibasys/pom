@@ -37,6 +37,8 @@
 	<version.plugin.compiler>3.8.1</version.plugin.compiler>
 	<version.plugin.surefire>2.22.1</version.plugin.surefire>
 	<version.plugin.war>3.2.3</version.plugin.war>
+	<version.plugin.jar>3.2.0</version.plugin.jar>
+	<version.plugin.archetype>3.1.2</version.plugin.archetype>
 	<version.plugin.install>2.5.2</version.plugin.install>
     <version.plugin.deploy>2.8.2</version.plugin.deploy>
     <version.plugin.release>2.5.3</version.plugin.release>
@@ -148,6 +150,16 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
           <version>${version.plugin.war}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>${version.plugin.jar}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>${version.plugin.archetype}</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
