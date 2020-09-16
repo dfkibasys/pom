@@ -44,6 +44,7 @@
     <version.plugin.release>2.5.3</version.plugin.release>
 	<!-- BaSys module versions -->
 	<version.basys.common>0.2.7-SNAPSHOT</version.basys.common>
+	<version.basys.aas>0.2.7-SNAPSHOT</version.basys.aas>
 	<version.basys.platform>0.2.7-SNAPSHOT</version.basys.platform>
 	<version.basys.controlcomponent>0.2.7-SNAPSHOT</version.basys.controlcomponent>
     <!-- build properties -->
