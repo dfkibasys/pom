@@ -70,6 +70,9 @@
 	<karaf-version>4.2.3</karaf-version>
 	<junit-version>4.12</junit-version>
 	<guava.version>26.0-jre</guava.version>
+	<paho-version>1.2.1</paho-version>
+	<activemq-version>5.15.7</activemq-version>
+	<kafka-version>2.3.0</kafka-version>
   </properties>
   <packaging>pom</packaging>
   <modules>
