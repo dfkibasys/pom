@@ -62,7 +62,7 @@
     <emfjson-jackson-version>1.3.0</emfjson-jackson-version>
     <jaxrs-version>2.1.1</jaxrs-version>
     <jaxrs-connector-version>5.3.1</jaxrs-connector-version>    
-	<jersey-version>2.29</jersey-version>	
+	<jersey-version>2.30</jersey-version>	
     <curator.version>5.1.0</curator.version>
     <curator-x.version>5.1.0</curator-x.version>	
     <milo.version>0.5.3</milo.version>
