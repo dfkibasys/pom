@@ -73,7 +73,7 @@
 	<paho-version>1.2.5</paho-version>
 	<activemq-version>5.16.1</activemq-version>
 	<kafka-version>2.7.0</kafka-version>
-	<basyx-version>1.0.0-SNAPSHOT</basyx-version>
+	<basyx-version>1.0.0</basyx-version>
   </properties>
   <packaging>pom</packaging>
   <modules>
