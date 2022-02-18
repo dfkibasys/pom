@@ -46,13 +46,13 @@
     <jaxrs.version>2.1.1</jaxrs.version>		  
 	<jersey.version>2.30</jersey.version>		  
 	<jackson.version>2.13.1</jackson.version>
-	<basyx.version>1.0.2</basyx.version>
+	<basyx.version>[1.0.0,2.0.0)</basyx.version>
 	<paho.version>1.2.5</paho.version>
 	<mockito-core.version>3.2.4</mockito-core.version>	
     <commons-cli.version>1.4</commons-cli.version>
     <commons-lang3.version>3.11</commons-lang3.version>
     <commons-jexl3.version>3.1</commons-jexl3.version> 	
-    <milo.version>0.5.3</milo.version>	
+    <milo.version>0.6.3</milo.version>
 	
     <curator.version>5.1.0</curator.version>
     <curator-x.version>5.1.0</curator-x.version>	

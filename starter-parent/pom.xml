@@ -14,7 +14,13 @@
 	
 	<name>BaSys 4.2 Starter Parent POM</name>
 	<description>BaSys 4.2 Starter Parent POM</description>
-	
+
+	<properties>
+		<docker.imagename>${project.artifactId}:${project.version}</docker.imagename>
+		<docker.username></docker.username>
+		<docker.password></docker.password>
+	</properties>
+
 	<dependencies>		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,6 +43,27 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<image>
+							<publish>true</publish>
+							<name>docker.io/${docker.username}/${docker.imagename}</name>
+						</image>
+						<docker>
+							<publishRegistry>
+								<username>${docker.username}</username>
+								<password>${docker.password}</password>
+							</publishRegistry>
+						</docker>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
 
 </project>
