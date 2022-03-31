@@ -37,7 +37,8 @@
 	<basys-common.version>0.3.0-SNAPSHOT</basys-common.version>
 	<basys-aas.version>0.3.0-SNAPSHOT</basys-aas.version>
 	<basys-controlcomponent.version>0.3.0-SNAPSHOT</basys-controlcomponent.version>
-	<basys-platform.version>0.3.0-SNAPSHOT</basys-platform.version>
+    <basys-platform.version>0.3.0-SNAPSHOT</basys-platform.version>
+    <basys-aasregistry.version>0.1.0-SNAPSHOT</basys-aasregistry.version>
     
     <!-- dependency versions -->
 	<commons-io.version>2.8.0</commons-io.version>
