@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>de.dfki.cos.basys</groupId>
 		<artifactId>pom</artifactId>
 		<version>0.3.0-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
-	
+
 	<groupId>de.dfki.cos.basys.pom</groupId>
 	<artifactId>starter-parent</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<name>BaSys 4.2 Starter Parent POM</name>
 	<description>BaSys 4.2 Starter Parent POM</description>
 
@@ -80,7 +82,8 @@
 		<profile>
 			<id>dockerbuild</id>
 			<activation>
-				<!-- This profile is always active if there is a Dockerfile and a user name is given -->
+				<!-- This profile is always active if there is a Dockerfile and a user 
+					name is given -->
 				<file>
 					<exists>src/main/docker/Dockerfile</exists>
 				</file>
@@ -98,6 +101,12 @@
 								<enabled>true</enabled>
 								<includeLayerTools>true</includeLayerTools>
 							</layers>
+							<excludes>
+								<exclude>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+								</exclude>
+							</excludes>
 						</configuration>
 						<executions>
 							<execution>
