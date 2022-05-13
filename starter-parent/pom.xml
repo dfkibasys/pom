@@ -18,8 +18,6 @@
 
 	<properties>
 		<docker.imagename>${project.artifactId}:${project.version}</docker.imagename>
-		<docker.username/>
-		<docker.password/>
 
 		<docker.maven.plugin.version>0.39.1</docker.maven.plugin.version>
 		<docker.image.name>${project.artifactId}</docker.image.name>
@@ -82,10 +80,13 @@
 		<profile>
 			<id>dockerbuild</id>
 			<activation>
-				<!-- This profile is always active if there is a Dockerfile -->
+				<!-- This profile is always active if there is a Dockerfile and a user name is given -->
 				<file>
 					<exists>src/main/docker/Dockerfile</exists>
 				</file>
+				<property>
+					<name>docker.username</name>
+				</property>
 			</activation>
 			<build>
 				<plugins>
