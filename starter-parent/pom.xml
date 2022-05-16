@@ -1,41 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>de.dfki.cos.basys</groupId>
 		<artifactId>pom</artifactId>
 		<version>0.3.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
 	</parent>
-	
+
 	<groupId>de.dfki.cos.basys.pom</groupId>
 	<artifactId>starter-parent</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<name>BaSys 4.2 Starter Parent POM</name>
 	<description>BaSys 4.2 Starter Parent POM</description>
 
 	<properties>
 		<docker.imagename>${project.artifactId}:${project.version}</docker.imagename>
-		<docker.username/>
-		<docker.password/>
+
+		<docker.maven.plugin.version>0.39.1</docker.maven.plugin.version>
+		<docker.image.name>${project.artifactId}</docker.image.name>
+		<docker.image.version>${project.version}</docker.image.version>
+		<docker.pull.registry>docker.io</docker.pull.registry>
 	</properties>
 
-	<dependencies>		
+	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-logging</artifactId>		
+			<artifactId>spring-boot-starter-logging</artifactId>
 		</dependency>
-	
-        <!-- https://mvnrepository.com/artifact/junit/junit/4.12 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-	
+
+		<!-- https://mvnrepository.com/artifact/junit/junit/4.12 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -46,6 +52,13 @@
 
 		<pluginManagement>
 			<plugins>
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>${docker.maven.plugin.version}</version>
+				</plugin>
+				<!-- this plugin will be removed and replaced by the docker-maven-plugin 
+					profile -->
 				<plugin>
 					<groupId>org.springframework.boot</groupId>
 					<artifactId>spring-boot-maven-plugin</artifactId>
@@ -65,5 +78,83 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
+	<profiles>
+		<profile>
+			<id>dockerbuild</id>
+			<activation>
+				<!-- This profile is always active if there is a Dockerfile and a user 
+					name is given -->
+				<file>
+					<exists>src/main/docker/Dockerfile</exists>
+				</file>
+				<property>
+					<name>docker.username</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<layers>
+								<enabled>true</enabled>
+								<includeLayerTools>true</includeLayerTools>
+							</layers>
+							<excludes>
+								<exclude>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+								</exclude>
+							</excludes>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>repackage</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>build-docker</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>push-docker</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>push</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<verbose>true</verbose>
+							<images>
+								<image>
+									<name>${docker.username}/${docker.image.name}</name>
+									<build>
+										<assembly>
+											<descriptorRef>artifact</descriptorRef>
+										</assembly>
+										<dockerFile>Dockerfile</dockerFile>
+										<tags>
+											<tag>${docker.image.version}</tag>
+										</tags>
+									</build>
+								</image>
+							</images>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
