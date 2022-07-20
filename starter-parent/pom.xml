@@ -21,7 +21,7 @@
 	<properties>
 		<docker.imagename>${project.artifactId}:${project.version}</docker.imagename>
 
-		<docker.maven.plugin.version>0.39.1</docker.maven.plugin.version>
+		<docker.maven.plugin.version>0.40.1</docker.maven.plugin.version>
 		<docker.image.name>${project.artifactId}</docker.image.name>
 		<docker.image.version>${project.version}</docker.image.version>
 		<docker.pull.registry>docker.io</docker.pull.registry>
