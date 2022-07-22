@@ -25,6 +25,7 @@
 		<docker.image.name>${project.artifactId}</docker.image.name>
 		<docker.image.version>${project.version}</docker.image.version>
 		<docker.pull.registry>docker.io</docker.pull.registry>
+		<docker.target.platforms>linux/amd64,linux/arm64</docker.target.platforms>
 	</properties>
 
 	<dependencies>
@@ -135,19 +136,26 @@
 								</goals>
 							</execution>
 						</executions>
+						
 						<configuration>
 							<verbose>true</verbose>
 							<images>
 								<image>
 									<name>${docker.username}/${docker.image.name}</name>
+									<!-- needs to be set to this registry https://github.com/fabric8io/docker-maven-plugin/pull/1578 -->
+									<registry>https://index.docker.io/v1/</registry>
 									<build>
 										<assembly>
 											<descriptorRef>artifact</descriptorRef>
 										</assembly>
-										<dockerFile>Dockerfile</dockerFile>
 										<tags>
 											<tag>${docker.image.version}</tag>
 										</tags>
+										<dockerFile>Dockerfile</dockerFile>
+										<contextDir>${project.basedir}/src/main/docker</contextDir>
+										<buildx>
+											<platforms>${docker.target.platforms}</platforms>
+										</buildx>
 									</build>
 								</image>
 							</images>
