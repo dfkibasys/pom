@@ -140,6 +140,9 @@
 												</tags>
 												<dockerFile>Dockerfile</dockerFile>
 												<contextDir>${project.basedir}/src/main/docker</contextDir>
+												<buildx>
+													<platforms>${docker.target.platforms}</platforms>
+												</buildx>
 											</build>
 										</image>
 									</images>
@@ -149,7 +152,6 @@
 								<id>push-docker</id>
 								<phase>deploy</phase>
 								<goals>
-									<goal>build</goal>
 									<goal>push</goal>
 								</goals>
 								<configuration>
