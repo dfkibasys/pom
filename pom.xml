@@ -28,7 +28,8 @@
     <version.plugin.tycho>1.4.0</version.plugin.tycho>
     <version.plugin.gpg>1.6</version.plugin.gpg>
     <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
-	<version.plugin.karaf>4.2.4</version.plugin.karaf>	
+	<version.plugin.karaf>4.2.4</version.plugin.karaf>		
+	<version.plugin.license>2.0.0</version.plugin.license>	
 	
     <maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
@@ -97,10 +98,9 @@
     </developer>
   </developers>
   <scm>
-    <url>https://github.com/BaSys-PC1</url>
+    <url>https://github.com/dfkibasys</url>
     <connection>${gitUrl}/pom.git</connection>
     <developerConnection>${gitUrl}/pom.git</developerConnection>
-    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
@@ -190,7 +190,43 @@
             </instructions>
           </configuration>
         </plugin>
-        <plugin>
+        
+		<plugin>
+		  <groupId>org.codehaus.mojo</groupId>
+		  <artifactId>license-maven-plugin</artifactId>
+		  <version>${version.plugin.license}</version>
+		  <executions>
+            <execution>
+              <id>default-cli</id>
+              <configuration>
+			    <includeTransitiveDependencies>false</includeTransitiveDependencies>
+			    <fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
+				<outputDirectory>${project.basedir}</outputDirectory>
+                <licenseMerges>
+                  <licenseMerge>Apache-2.0|The Apache Software License, Version 2.0</licenseMerge>
+                  <licenseMerge>Apache-2.0|Apache License 2.0</licenseMerge>
+				  <licenseMerge>Apache-2.0|Apache License, 2.0</licenseMerge>
+                  <licenseMerge>Apache-2.0|Apache License, Version 2.0</licenseMerge>
+                  <licenseMerge>Apache-2.0|Apache 2.0</licenseMerge>				 
+				  <licenseMerge>EPL-1.0|Eclipse Public License 1.0</licenseMerge>
+				  <licenseMerge>EPL-1.0|Eclipse Public License - Version 1.0</licenseMerge>
+				  <licenseMerge>EPL-1.0|Eclipse Public License - v 1.0</licenseMerge>
+				  <licenseMerge>EPL-1.0|EPL 1.0</licenseMerge>
+				  <licenseMerge>EPL-2.0|Eclipse Public License 2.0</licenseMerge>
+				  <licenseMerge>EPL-2.0|Eclipse Public License - Version 2.0</licenseMerge>
+				  <licenseMerge>EPL-2.0|Eclipse Public License - v 2.0</licenseMerge>	
+				  <licenseMerge>EPL-2.0|Eclipse Public License v2.0</licenseMerge>		
+				  <licenseMerge>EPL-2.0|EPL 2.0</licenseMerge>	
+				  <licenseMerge>MIT|The MIT License</licenseMerge>		
+				  <licenseMerge>LGPL-3.0|GNU Library or Lesser General Public License (LGPL) Version 3</licenseMerge>		
+				  <licenseMerge>BSD-3-Clause|Eclipse Distribution License - v 1.0</licenseMerge>
+				  <licenseMerge>BSD-3-Clause|New BSD (3-clause) License</licenseMerge>
+                </licenseMerges>
+              </configuration>
+            </execution>
+          </executions>
+		</plugin>
+		<plugin>
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-staging-maven-plugin</artifactId>
           <version>${version.plugin.nexus-staging}</version>
