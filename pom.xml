@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.6.3</version>
+    <relativePath />
+  </parent>
+  
+  <groupId>de.dfki.cos.basys</groupId>
+  <artifactId>pom</artifactId>
+  <version>0.3.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+    
+  <name>BaSys 4.2 Root POM</name>
+  <description>This is the root POM for the BaSys 4.2 project</description>
+  
+  <properties>
+    <!-- build properties -->
+	<java.version>11</java.version>
+	
+	<!-- | some example OSGi runtime properties -->
+    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
+    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+    <!-- maven plugin versions -->
+    <version.plugin.tycho>1.4.0</version.plugin.tycho>
+    <version.plugin.gpg>1.6</version.plugin.gpg>
+    <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
+	<version.plugin.karaf>4.2.4</version.plugin.karaf>	
+	
+    <maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
+    <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+	
+	<!-- BaSys module versions -->
+	<basys-common.version>0.3.0-SNAPSHOT</basys-common.version>
+	<basys-aas.version>0.3.0-SNAPSHOT</basys-aas.version>
+	<basys-controlcomponent.version>0.3.0-SNAPSHOT</basys-controlcomponent.version>
+    <basys-platform.version>0.3.0-SNAPSHOT</basys-platform.version>
+    <basys-aasregistry.version>0.1.0-SNAPSHOT</basys-aasregistry.version>
+    
+    <!-- dependency versions -->
+	<commons-io.version>2.8.0</commons-io.version>
+	<guava.version>30.1-jre</guava.version>
+	<junit.version>4.13.2</junit.version>	
+    <jaxrs.version>2.1.1</jaxrs.version>		  
+	<jersey.version>2.30</jersey.version>		  
+	<jackson.version>2.13.1</jackson.version>
+	<basyx.version>[1.0.0,2.0.0)</basyx.version>
+	<paho.version>1.2.5</paho.version>
+	<mockito-core.version>3.2.4</mockito-core.version>	
+    <commons-cli.version>1.4</commons-cli.version>
+    <commons-lang3.version>3.11</commons-lang3.version>
+    <commons-jexl3.version>3.1</commons-jexl3.version> 	
+    <milo.version>0.6.3</milo.version>
+	
+    <curator.version>5.1.0</curator.version>
+    <curator-x.version>5.1.0</curator-x.version>	
+	<karaf-version>4.3.0</karaf-version>
+	<activemq-version>5.16.1</activemq-version>
+	<kafka-version>2.7.0</kafka-version>
+	
+	<!--	
+    <emf-xmi.version>2.16.0</emf-xmi.version>
+    <emfjson-jackson.version>1.3.0</emfjson-jackson.version>
+    <jaxrs-connector-version>5.3.1</jaxrs-connector-version>
+    <pax-logging-version>1.10.1</pax-logging-version>
+	-->
+	
+  </properties>
+ 
+ <modules>
+	<module>starter-parent</module>
+ </modules>
+ 
   <url>https://www.basys40.de/</url>
   <organization>
     <name>DFKI GmbH</name>
@@ -7,79 +81,12 @@
   </organization>
   <licenses>
     <license>
-      <name>Eclipse Public License - v 1.0</name>
-      <url>https://www.eclipse.org/legal/epl-v10.html</url>
+      <name>Eclipse Public License - v 2.0</name>
+      <url>https://www.eclipse.org/legal/epl-v20.html</url>
       <comments />
       <distribution>repo</distribution>
     </license>
   </licenses>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>de.dfki.cos.basys</groupId>
-  <artifactId>pom</artifactId>
-  <version>0.2.7-SNAPSHOT</version>
-  <name>BaSys 4.0 Root POM</name>
-  <description>This is the root POM for the BaSys 4.0 project</description>
-  <properties>
-    <!-- | some example OSGi runtime properties -->
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
-    <!-- maven plugin versions -->
-    <version.plugin.tycho>1.4.0</version.plugin.tycho>
-    <version.plugin.bundle>4.1.0</version.plugin.bundle>
-    <version.plugin.clean>3.1.0</version.plugin.clean>
-    <version.plugin.resources>3.1.0</version.plugin.resources>
-    <version.plugin.source>3.1.0</version.plugin.source>
-    <version.plugin.javadoc>3.1.0</version.plugin.javadoc>
-    <version.plugin.gpg>1.6</version.plugin.gpg>
-    <version.plugin.enforcer>1.4.1</version.plugin.enforcer>
-    <version.plugin.nexus-staging>1.6.8</version.plugin.nexus-staging>		
-	<version.plugin.karaf>4.2.4</version.plugin.karaf>	
-	<version.plugin.compiler>3.8.1</version.plugin.compiler>
-	<version.plugin.surefire>2.22.1</version.plugin.surefire>
-	<version.plugin.war>3.2.3</version.plugin.war>
-	<version.plugin.jar>3.2.0</version.plugin.jar>
-	<version.plugin.archetype>3.1.2</version.plugin.archetype>
-	<version.plugin.install>2.5.2</version.plugin.install>
-    <version.plugin.deploy>2.8.2</version.plugin.deploy>
-    <version.plugin.release>2.5.3</version.plugin.release>
-	<!-- BaSys module versions -->
-	<version.basys.common>0.2.7-SNAPSHOT</version.basys.common>
-	<version.basys.aas>0.2.7-SNAPSHOT</version.basys.aas>
-	<version.basys.platform>0.2.7-SNAPSHOT</version.basys.platform>
-	<version.basys.controlcomponent>0.2.7-SNAPSHOT</version.basys.controlcomponent>
-    <!-- build properties -->
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <!-- dependency versions -->
-    <emf-xmi-version>2.16.0</emf-xmi-version>
-    <commons-io-version>2.8.0</commons-io-version>
-    <commons-cli.version>1.4</commons-cli.version>
-    <commons-lang3.version>3.11</commons-lang3.version>
-    <commons-jexl3.version>3.1</commons-jexl3.version>    
-	<jackson-version>2.12.1</jackson-version>
-    <emfjson-jackson-version>1.3.0</emfjson-jackson-version>
-    <jaxrs-version>2.1.1</jaxrs-version>
-    <jaxrs-connector-version>5.3.1</jaxrs-connector-version>    
-	<jersey-version>2.30</jersey-version>	
-    <curator.version>5.1.0</curator.version>
-    <curator-x.version>5.1.0</curator-x.version>	
-    <milo.version>0.5.3</milo.version>
-    <pax-logging-version>1.10.1</pax-logging-version>	
-	<karaf-version>4.3.0</karaf-version>
-	<junit-version>4.13.2</junit-version>
-	<guava.version>30.1-jre</guava.version>
-	<paho-version>1.2.5</paho-version>
-	<activemq-version>5.16.1</activemq-version>
-	<kafka-version>2.7.0</kafka-version>
-	<basyx-version>1.0.0</basyx-version>
-  </properties>
-  <packaging>pom</packaging>
-  <modules>
-    <module>poms</module>
-    <module>provision</module>
-  </modules>
   <developers>
     <developer>
       <id>dp</id>
@@ -106,6 +113,21 @@
     </repository>
   </distributionManagement>
   <build>
+      
+      <!--
+	  | example additional resource entries, useful when building Eclipse RCP applications
+     <resources>      
+      <resource>
+        <directory>.</directory>
+        <includes>
+          <include>plugin.xml</include>
+          <include>plugin.properties</include>
+          <include>icons/**</include>
+          <include>model/**</include>
+        </includes>
+      </resource>
+    </resources>
+	  -->
     <pluginManagement>
       <plugins>
         <plugin>
@@ -119,7 +141,54 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>${version.plugin.bundle}</version>
+          <version>${maven-bundle-plugin.version}</version>
+		    <extensions>true</extensions>
+			<executions>
+				<!-- Configure extra execution of 'manifest' in process-classes phase to make sure SCR metadata is generated before unit test runs -->
+				<execution>
+				  <id>scr-metadata</id>
+				  <goals>
+					<goal>manifest</goal>
+				  </goals>
+				  <configuration>
+					<supportIncrementalBuild>true</supportIncrementalBuild>
+				  </configuration>
+				</execution>
+			</executions>		
+          <configuration>
+            <manifestLocation>META-INF</manifestLocation>
+	  	  <archive>
+	  		<addMavenDescriptor>false</addMavenDescriptor>
+	  	  </archive> 
+            <instructions>
+              <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+              <Bundle-Version>${project.version}</Bundle-Version>
+              <!--
+               | assume public classes are in the top package, and private classes are under ".internal"
+              -->
+              <!--
+	  		<Export-Package>!${bundle.namespace}.internal.*,!*.impl,${bundle.namespace}.*;version="${project.version}"</Export-Package>
+              <Private-Package>${bundle.namespace}.internal.*,*.impl</Private-Package>
+	  		-->
+              <!--
+               | each module can override these defaults in their osgi.bnd file
+              -->
+	  		<!--
+              <Import-Package>!*.impl,*</Import-Package>
+	  		-->
+	  		<Export-Package>!${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
+              <_include>-osgi.bnd</_include>
+	  		<!-- Enable processing of OSGI DS component annotations -->
+	  		<_dsannotations>*</_dsannotations>
+	  		<!-- Enable processing of OSGI metatype annotations -->
+	  		<_metatypeannotations>*</_metatypeannotations>
+	  		<_removeheaders>Bnd-LastModified, Built-By, Build-Jdk, Require-Capability</_removeheaders>
+	  		<!-- Support parsing of maven-scr-plugin annotations through the felix.scr.bnd plugin -->
+	  		<!--
+	  		<_plugin>org.apache.felix.scrplugin.bnd.SCRDescriptorBndPlugin;destdir=${project.build.outputDirectory};</_plugin>
+	  		-->
+            </instructions>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
@@ -128,58 +197,8 @@
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-clean-plugin</artifactId>
-          <version>${version.plugin.clean}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>${version.plugin.resources}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-source-plugin</artifactId>
-          <version>${version.plugin.source}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-compiler-plugin</artifactId>
-          <version>${version.plugin.compiler}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-surefire-plugin</artifactId>
-          <version>${version.plugin.surefire}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-war-plugin</artifactId>
-          <version>${version.plugin.war}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>${version.plugin.jar}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-archetype-plugin</artifactId>
-          <version>${version.plugin.archetype}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-javadoc-plugin</artifactId>
-          <version>${version.plugin.javadoc}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>${version.plugin.gpg}</version>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${version.plugin.enforcer}</version>
         </plugin>
         <!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
@@ -231,58 +250,28 @@
           <pomDependencies>consider</pomDependencies>
         </configuration>
       </plugin>
-      <!-- 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.1.0</version>
-				<executions>
-					<execution>
-						<id>copy-dependencies</id>
-						<phase>package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<overWriteReleases>false</overWriteReleases>
-							<overWriteSnapshots>false</overWriteSnapshots>
-							<overWriteIfNewer>true</overWriteIfNewer>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin> -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-install-plugin</artifactId>
-        <version>${version.plugin.install}</version>
-      </plugin>
-	  <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <version>${version.plugin.deploy}</version>
-        <!-- 				<configuration>
-					<skip>true</skip>
-				</configuration> -->
-      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>${version.plugin.release}</version>
+        <version>${maven-release-plugin.version}</version>
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
           <autoVersionSubmodules>true</autoVersionSubmodules>
           <releaseProfiles>sonatype-oss-release</releaseProfiles>
         </configuration>
       </plugin>
+	  <!--
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
-        <version>${version.plugin.enforcer}</version>
         <configuration>
           <rules>
             <dependencyConvergence />
           </rules>
         </configuration>
       </plugin>
+	  -->
       <!-- https://github.com/ferstl/depgraph-maven-plugin -->
       <!--
 			<plugin>

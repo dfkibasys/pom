@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>de.dfki.cos.basys</groupId>
+		<artifactId>pom</artifactId>
+		<version>0.3.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<groupId>de.dfki.cos.basys.pom</groupId>
+	<artifactId>starter-parent</artifactId>
+	<packaging>pom</packaging>
+
+	<name>BaSys 4.2 Starter Parent POM</name>
+	<description>BaSys 4.2 Starter Parent POM</description>
+
+	<properties>
+		<docker.imagename>${project.artifactId}:${project.version}</docker.imagename>
+
+		<docker.maven.plugin.version>0.40.1</docker.maven.plugin.version>
+		<docker.image.name>${project.artifactId}</docker.image.name>
+		<docker.image.version>${project.version}</docker.image.version>
+		<docker.pull.registry>docker.io</docker.pull.registry>
+		<docker.target.platforms>linux/amd64,linux/arm64</docker.target.platforms>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit/4.12 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>io.fabric8</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>${docker.maven.plugin.version}</version>
+				</plugin>
+				<!-- this plugin will be removed and replaced by the docker-maven-plugin 
+					profile -->
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<configuration>
+						<image>
+							<publish>true</publish>
+							<name>docker.io/${docker.username}/${docker.imagename}</name>
+						</image>
+						<docker>
+							<publishRegistry>
+								<username>${docker.username}</username>
+								<password>${docker.password}</password>
+							</publishRegistry>
+						</docker>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<profiles>
+		<profile>
+			<id>dockerbuild</id>
+			<activation>
+				<!-- This profile is always active if there is a Dockerfile and a user 
+					name is given -->
+				<file>
+					<exists>src/main/docker/Dockerfile</exists>
+				</file>
+				<property>
+					<name>docker.username</name>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.boot</groupId>
+						<artifactId>spring-boot-maven-plugin</artifactId>
+						<configuration>
+							<layers>
+								<enabled>true</enabled>
+								<includeLayerTools>true</includeLayerTools>
+							</layers>
+							<excludes>
+								<exclude>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+								</exclude>
+							</excludes>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>repackage</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>build-docker</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+								<configuration>
+									<images>
+										<image>
+											<name>${docker.username}/${docker.image.name}</name>
+											<build>
+												<assembly>
+													<descriptorRef>artifact</descriptorRef>
+												</assembly>
+												<tags>
+													<tag>${docker.image.version}</tag>
+												</tags>
+												<dockerFile>Dockerfile</dockerFile>
+												<contextDir>${project.basedir}/src/main/docker</contextDir>
+												<!-- building non buildx image here to speed up build -->
+											</build>
+										</image>
+									</images>
+								</configuration>
+							</execution>
+							<execution>
+								<id>push-docker</id>
+								<phase>deploy</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>push</goal>
+								</goals>
+								<configuration>
+									<images>
+										<image>
+											<name>${docker.username}/${docker.image.name}</name>
+											<!-- needs to be set to this registry https://github.com/fabric8io/docker-maven-plugin/pull/1578 -->
+											<registry>https://index.docker.io/v1/</registry>
+											<build>
+												<assembly>
+													<descriptorRef>artifact</descriptorRef>
+												</assembly>
+												<tags>
+													<tag>${docker.image.version}</tag>
+												</tags>
+												<dockerFile>Dockerfile</dockerFile>
+												<contextDir>${project.basedir}/src/main/docker</contextDir>
+												<buildx>
+													<platforms>${docker.target.platforms}</platforms>
+												</buildx>
+											</build>
+										</image>
+									</images>
+								</configuration>
+							</execution>
+						</executions>
+						
+						
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
