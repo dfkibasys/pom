@@ -1,0 +1,10 @@
+
+List of third-party dependencies grouped by their license type.
+
+    Apache-2.0:
+
+        * spring-boot-starter-logging (org.springframework.boot:spring-boot-starter-logging:2.6.3 - https://spring.io/projects/spring-boot)
+
+    EPL-1.0:
+
+        * JUnit (junit:junit:4.13.2 - http://junit.org)
