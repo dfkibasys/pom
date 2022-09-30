@@ -11,7 +11,7 @@
   
   <groupId>de.dfki.cos.basys</groupId>
   <artifactId>pom</artifactId>
-  <version>0.4.2</version>
+  <version>0.4.3-SNAPSHOT</version>
   <packaging>pom</packaging>
     
   <name>BaSys 4.2 Root POM</name>
@@ -103,7 +103,7 @@
     <url>https://github.com/dfkibasys</url>
     <connection>${gitUrl}/pom.git</connection>
     <developerConnection>${gitUrl}/pom.git</developerConnection>
-    <tag>v0.4.2</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
