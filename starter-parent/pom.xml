@@ -24,6 +24,11 @@
 		<docker.image.version>${project.version}</docker.image.version>
 		<docker.pull.registry>docker.io</docker.pull.registry>
 		<docker.target.platforms>linux/amd64,linux/arm64</docker.target.platforms>
+
+
+		<!-- | some example OSGi runtime properties -->
+		<org.osgi.service.http.port>8080</org.osgi.service.http.port>
+		<org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
 	</properties>
 
 	<dependencies>
