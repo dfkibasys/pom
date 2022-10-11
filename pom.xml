@@ -11,7 +11,7 @@
   
   <groupId>de.dfki.cos.basys</groupId>
   <artifactId>pom</artifactId>
-  <version>0.3.0-SNAPSHOT</version>
+  <version>0.4.3-SNAPSHOT</version>
   <packaging>pom</packaging>
     
   <name>BaSys 4.2 Root POM</name>
@@ -20,51 +20,48 @@
   <properties>
     <!-- build properties -->
 	<java.version>11</java.version>
-	
-	<!-- | some example OSGi runtime properties -->
-    <org.osgi.service.http.port>8080</org.osgi.service.http.port>
-    <org.osgi.service.http.port.secure>8443</org.osgi.service.http.port.secure>
+
     <!-- maven plugin versions -->
     <version.plugin.tycho>1.4.0</version.plugin.tycho>
     <version.plugin.gpg>1.6</version.plugin.gpg>
     <version.plugin.nexus-staging>1.6.13</version.plugin.nexus-staging>
 	<version.plugin.karaf>4.2.4</version.plugin.karaf>		
 	<version.plugin.license>2.0.0</version.plugin.license>
-    <version.plugin.source>3.2.1</version.plugin.source>
-    <version.plugin.javadoc>3.4.1</version.plugin.javadoc>
 
     <maven-bundle-plugin.version>5.1.8</maven-bundle-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
 	
 	<!-- BaSys module versions -->
+	<!--
 	<basys-common.version>0.3.0-SNAPSHOT</basys-common.version>
 	<basys-aas.version>0.3.0-SNAPSHOT</basys-aas.version>
 	<basys-controlcomponent.version>0.3.0-SNAPSHOT</basys-controlcomponent.version>
     <basys-platform.version>0.3.0-SNAPSHOT</basys-platform.version>
     <basys-aasregistry.version>0.1.0-SNAPSHOT</basys-aasregistry.version>
-    
+    -->
+	
     <!-- dependency versions -->
 	<commons-io.version>2.8.0</commons-io.version>
 	<guava.version>30.1-jre</guava.version>
-	<junit.version>4.13.2</junit.version>	
-    <jaxrs.version>2.1.1</jaxrs.version>		  
-	<jersey.version>2.30</jersey.version>		  
-	<jackson.version>2.13.1</jackson.version>
+    <jaxrs.version>2.1.1</jaxrs.version>
 	<basyx.version>[1.0.0,2.0.0)</basyx.version>
 	<paho.version>1.2.5</paho.version>
 	<mockito-core.version>3.2.4</mockito-core.version>	
     <commons-cli.version>1.4</commons-cli.version>
-    <commons-lang3.version>3.11</commons-lang3.version>
     <commons-jexl3.version>3.1</commons-jexl3.version> 	
     <milo.version>0.6.3</milo.version>
-	
+
     <curator.version>5.1.0</curator.version>
     <curator-x.version>5.1.0</curator-x.version>	
 	<karaf-version>4.3.0</karaf-version>
 	<activemq-version>5.16.1</activemq-version>
-	<kafka-version>2.7.0</kafka-version>
 	
-	<!--	
+	<!--
+	<junit.version>4.13.2</junit.version>
+	<jersey.version>2.30</jersey.version>
+	<jackson.version>2.13.1</jackson.version>
+	<kafka-version>2.7.0</kafka-version>
+    <commons-lang3.version>3.11</commons-lang3.version>
     <emf-xmi.version>2.16.0</emf-xmi.version>
     <emfjson-jackson.version>1.3.0</emfjson-jackson.version>
     <jaxrs-connector-version>5.3.1</jaxrs-connector-version>
@@ -103,6 +100,7 @@
     <url>https://github.com/dfkibasys</url>
     <connection>${gitUrl}/pom.git</connection>
     <developerConnection>${gitUrl}/pom.git</developerConnection>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <snapshotRepository>
@@ -269,7 +267,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-source-plugin</artifactId>
-            <version>${version.plugin.source}</version>
             <executions>
               <execution>
                 <id>attach-sources</id>
@@ -290,7 +287,6 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
-            <version>${version.plugin.javadoc}</version>
             <configuration>
               <quiet>true</quiet>
               <additionalJOption>-Xdoclint:none</additionalJOption>
