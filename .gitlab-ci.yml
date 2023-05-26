@@ -7,4 +7,6 @@ mvn-package:
   extends: .mvn-package
 
 mvn-deploy:
-  extends: .mvn-deploy
+  extends: .mvn-deploy  
+  dependencies:
+    - mvn-package
