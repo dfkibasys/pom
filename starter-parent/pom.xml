@@ -17,6 +17,8 @@
 	<description>This is the Starter POM for individual Java modules</description>
 
 	<properties>
+		<maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+
 		<docker.maven.plugin.version>0.40.1</docker.maven.plugin.version>
 		<docker.image.name>${project.artifactId}</docker.image.name>
 		<docker.image.version>${project.version}</docker.image.version>
