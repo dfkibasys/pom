@@ -173,6 +173,26 @@
 
   <profiles>
     <profile>
+      <id>gitlab-ci</id>
+      <repositories>
+        <repository>
+          <id>basys-nexus</id>
+          <url>${env.MAVEN_REPO_URL}/maven-public/</url>
+        </repository>
+      </repositories>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>basys-nexus</id>
+          <url>${env.MAVEN_REPO_URL}/maven-snapshots</url>
+        </snapshotRepository>
+        <repository>
+          <id>basys-nexus</id>
+          <url>${env.MAVEN_REPO_URL}/maven-releases</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+
+    <profile>
       <id>sonatype-oss-release</id>
       <distributionManagement>
         <snapshotRepository>
