@@ -82,6 +82,7 @@
 			    <fileTemplate>/org/codehaus/mojo/license/third-party-file-groupByLicense.ftl</fileTemplate>
 				<outputDirectory>${project.basedir}</outputDirectory>
                 <licenseMerges>
+                  <licenseMerge>Apache-2.0|Apache Software License, version 2.0</licenseMerge>
                   <licenseMerge>Apache-2.0|The Apache Software License, Version 2.0</licenseMerge>
                   <licenseMerge>Apache-2.0|Apache License 2.0</licenseMerge>
 				  <licenseMerge>Apache-2.0|Apache License, 2.0</licenseMerge>
@@ -95,9 +96,11 @@
 				  <licenseMerge>EPL-2.0|Eclipse Public License - Version 2.0</licenseMerge>
 				  <licenseMerge>EPL-2.0|Eclipse Public License - v 2.0</licenseMerge>	
 				  <licenseMerge>EPL-2.0|Eclipse Public License v2.0</licenseMerge>		
-				  <licenseMerge>EPL-2.0|EPL 2.0</licenseMerge>	
-				  <licenseMerge>MIT|The MIT License</licenseMerge>		
-				  <licenseMerge>LGPL-3.0|GNU Library or Lesser General Public License (LGPL) Version 3</licenseMerge>		
+				  <licenseMerge>EPL-2.0|EPL 2.0</licenseMerge>
+                  <licenseMerge>MIT|The MIT License</licenseMerge>
+                  <licenseMerge>GPL2 w/ CPE|The GNU General Public License (GPL), Version 2, With Classpath Exception</licenseMerge>
+                  <licenseMerge>LGPL-3.0|GNU Library or Lesser General Public License (LGPL) Version 3</licenseMerge>
+                  <licenseMerge>BSD-2-Clause|BSD 2-Clause</licenseMerge>
 				  <licenseMerge>BSD-3-Clause|Eclipse Distribution License - v 1.0</licenseMerge>
 				  <licenseMerge>BSD-3-Clause|New BSD (3-clause) License</licenseMerge>
                 </licenseMerges>
