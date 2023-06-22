@@ -44,10 +44,10 @@
   </organization>
   <licenses>
     <license>
-      <name>Eclipse Public License - v 2.0</name>
-      <url>https://www.eclipse.org/legal/epl-v20.html</url>
-      <comments />
+      <name>MIT</name>
+      <url>https://opensource.org/license/mit/</url>
       <distribution>repo</distribution>
+      <comments />
     </license>
   </licenses>
   <developers>
@@ -59,10 +59,11 @@
       <organizationUrl>http://www.dfki.de</organizationUrl>
     </developer>
   </developers>
+
   <scm>
-    <url>https://github.com/dfkibasys</url>
-    <connection>${gitUrl}/pom.git</connection>
-    <developerConnection>${gitUrl}/pom.git</developerConnection>
+    <url>https://github.com/dfkibasys/pom</url>
+    <connection>https://github.com/dfkibasys/pom.git</connection>
+    <developerConnection>https://github.com/dfkibasys/pom.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
@@ -174,12 +175,6 @@
   <profiles>
     <profile>
       <id>gitlab-ci</id>
-      <repositories>
-        <repository>
-          <id>basys-nexus</id>
-          <url>${env.MAVEN_REPO_URL}/maven-public/</url>
-        </repository>
-      </repositories>
       <distributionManagement>
         <snapshotRepository>
           <id>basys-nexus</id>
