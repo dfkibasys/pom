@@ -12,7 +12,7 @@
   
   <groupId>de.dfki.cos.basys</groupId>
   <artifactId>pom</artifactId>
-  <version>0.5.0-SNAPSHOT</version>
+  <version>0.5.1-SNAPSHOT</version>
   <packaging>pom</packaging>
     
   <name>BaSys Root POM</name>
@@ -62,8 +62,8 @@
 
   <scm>
     <url>https://github.com/dfkibasys/pom</url>
-    <connection>https://github.com/dfkibasys/pom.git</connection>
-    <developerConnection>https://github.com/dfkibasys/pom.git</developerConnection>
+    <connection>${gitUrl}/pom.git</connection>
+    <developerConnection>${gitUrl}/pom.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
